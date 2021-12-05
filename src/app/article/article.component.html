@@ -1,0 +1,42 @@
+<!-- Landmark Article Content -->
+<div id="page" class="container-fluid">
+    <!-- Article -->
+    <div id="cardList" class="row-lg-3 container-fluid">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <!-- Landmark Image -->
+                <img
+                    id="img"
+                    src="{{articleDisplay.photo.url}}" 
+                    width="100%" 
+                    class="img-fluid rounded" 
+                    alt="{{articleDisplay.title}}"
+                >
+            </div>
+
+            <div class="col-md-8">
+                <div class="info">
+                    <!-- Landmark Title -->
+                    <span id="title">
+                        <h3>{{articleDisplay.title}}</h3>
+                    </span> 
+                    <!-- Landmark Info -->
+                    <p>{{articleDisplay.short_info}}</p>
+                    <!-- Landmark Description -->
+                    <p>{{articleDisplay.description}}</p>
+                    <!-- Original Site URL -->
+                    <a href="{{articleDisplay.url}}">{{articleDisplay.url}}</a>
+                    <!-- Google Maps -->
+                    <agm-map 
+                        id="map" 
+                        [latitude]="latitude"
+                        [longitude]="longitude"
+                    >
+                        <!-- Location Marker -->
+                        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

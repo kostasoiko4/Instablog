@@ -1,0 +1,43 @@
+<!-- Log In Page -->
+<div class="image container-fluid">
+    
+    <!-- Log In Form -->
+    <div id="form" class="row-lg-3 container-fluid">
+
+        <!-- Form Caption -->
+        <h3 id="text" class="text-center">Welcome to Instablog</h3>
+        
+        <form [formGroup]="loginForm" class="needs-validation" (ngSubmit)="onSubmit()">
+            <!-- Username -->
+            <div class="form-group mb-3">
+                <label id="text" for="username" class="form-label">Username</label>
+                <input
+                    id="username" 
+                    type="text"
+                    formControlName="username"
+                    class="form-control rounded-pill"
+                    required
+                >
+                <div *ngIf="!loginForm.value.username && submited">
+                    <label id="error" for="username" class="form-label">Please enter a username</label>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="form-group mb-3">
+                <label id="text" for="password" class="form-label">Password</label>
+                <input 
+                    id="password" 
+                    type="password"
+                    formControlName="password"
+                    class="form-control rounded-pill"
+                    required
+                >
+                <div *ngIf="!loginForm.value.password && submited">
+                    <label id="error" for="username" class="form-label">Please enter a password</label>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <button id="submitButton" type="submit" class="btn btn-primary rounded-pill">Log In</button>
+        </form>
+    </div>
+</div>

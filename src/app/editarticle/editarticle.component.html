@@ -1,0 +1,51 @@
+<!-- Landmark Article Content -->
+<div id="page" class="container-fluid">
+    <!-- Article -->
+    <div id="cardList" class="row-lg-3 container-fluid">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <!-- Landmark Image -->
+                <img
+                    id="img"
+                    src="{{articleDisplay.photo.url}}" 
+                    width="100%" 
+                    class="img-fluid rounded" 
+                    alt="{{articleDisplay.title}}"
+                >
+            </div>
+
+            <div class="col-md-8">
+                <div class="info">
+                    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                        <!-- Landmark Title -->
+                        <textarea 
+                            formControlName="title"    
+                            class="form-control textarea" 
+                            value="{{articleDisplay.title}}"
+                        ></textarea> 
+                        <!-- Landmark Info -->
+                        <textarea 
+                            id="info" 
+                            formControlName="short_info"
+                            class="form-control textarea"
+                            value="{{articleDisplay.short_info}}" 
+                        ></textarea>
+                        <!-- Landmark Description -->
+                        <textarea 
+                            id="description" 
+                            formControlName="description"
+                            class="form-control textarea" 
+                            value="{{articleDisplay.description}}"
+                        ></textarea>
+                        <!-- Save Button -->
+                        <button 
+                            id="submitButton" 
+                            class="btn btn-primary rounded-pill" 
+                            type="submit"
+                        >Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

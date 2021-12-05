@@ -1,0 +1,34 @@
+#caption {
+    margin-bottom: 60px; 
+    margin-top: 50px; 
+    color: #333333;
+}
+
+#cardList {
+    max-width: 1200px;
+}
+
+#img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+#img:hover {opacity: 0.9;}
+
+#title {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#edit-btn{
+    color: lightskyblue;
+    border-color: lightskyblue;
+    background-color: white;
+    float: right;
+}
+
+#edit-btn:focus {
+    border-color: lightskyblue;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px lightskyblue;
+}
+

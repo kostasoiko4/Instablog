@@ -1,0 +1,8 @@
+#nav {
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+#nav:hover {
+    opacity: 0.9;
+}

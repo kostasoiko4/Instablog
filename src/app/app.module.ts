@@ -12,15 +12,13 @@ import { LandmarksComponent } from './landmarks/landmarks.component';
 
 import { LandmarksApiservicesService } from './service/landmarksapiservices.service';
 import { ArticleComponent } from './article/article.component';
-import { EditarticleComponent } from './editarticle/editarticle.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandmarksComponent,
-    ArticleComponent,
-    EditarticleComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

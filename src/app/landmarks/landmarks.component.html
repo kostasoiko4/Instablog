@@ -9,7 +9,7 @@
 
   <!-- Landmark List Items -->
   <div id="cardList" *ngFor="let d of landmarksDisplay" class="row-lg-3 container-fluid">
-    <div id="card" class="card mb-3" [ngStyle]="{'box-shadow': '0px 0px 6px rgba(0, 0, 0, 0.3)'}">
+    <div id="card" class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
           <!-- Landmark Image -->
@@ -17,7 +17,7 @@
             id="img"
             src="{{d.photo_thumb.url}}" 
             width="100%" 
-            class="img-fluid rounded" 
+            class="img-fluid rounded smaller" 
             alt="{{d.title}}"
             data-bs-toggle="modal" 
             data-bs-target="#imgModal"
@@ -34,17 +34,6 @@
                   <h3 class="card-title">{{d.title}}</h3>
                 </span>
               </div>
-              <!-- Edit Button -->
-              <div class="col-md-4">
-                <button 
-                  id="edit-btn" 
-                  *ngIf="logedIn" 
-                  class="btn btn-primary rounded-pill"
-                  routerLink="editArticle"
-                  (click)="changeLandmarkId(d.objectId)"
-                >Edit</button>
-              </div>
-            </div>
             <!-- Landmark Info -->
             <p class="card-text">{{d.short_info}}</p>
           </div>
@@ -56,10 +45,10 @@
   <!-- Image Modal -->
   <div id="imgModal" class="modal fade">
     <div class="modal-dialog modal-dialog-centered">    
-      <img
+      <img 
+        id="img-modal"
         [src]="modalImg" 
         class="img-fluid rounded"
-        [ngStyle]="{'box-shadow': '0px 0px 6px rgba(0, 0, 0, 0.3)'}"
       >
     </div>
   </div>

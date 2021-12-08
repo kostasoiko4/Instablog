@@ -2,41 +2,105 @@
 <div id="page" class="container-fluid">
     <!-- Article -->
     <div id="cardList" class="row-lg-3 container-fluid">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <!-- Landmark Image -->
-                <img
-                    id="img"
-                    src="{{articleDisplay.photo.url}}" 
-                    width="100%" 
-                    class="img-fluid rounded" 
-                    alt="{{articleDisplay.title}}"
-                >
-            </div>
-
-            <div class="col-md-8">
-                <div class="info">
-                    <!-- Landmark Title -->
-                    <span id="title">
-                        <h3>{{articleDisplay.title}}</h3>
-                    </span> 
-                    <!-- Landmark Info -->
-                    <p>{{articleDisplay.short_info}}</p>
-                    <!-- Landmark Description -->
-                    <p>{{articleDisplay.description}}</p>
-                    <!-- Original Site URL -->
-                    <a href="{{articleDisplay.url}}">{{articleDisplay.url}}</a>
-                    <!-- Google Maps -->
-                    <agm-map 
-                        id="map" 
-                        [latitude]="latitude"
-                        [longitude]="longitude"
+        <div id="card" class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <!-- Landmark Image -->
+                    <img
+                        id="img"
+                        src="{{articleDisplay.photo.url}}" 
+                        width="100%" 
+                        class="img-fluid rounded" 
+                        alt="{{articleDisplay.title}}"
                     >
-                        <!-- Location Marker -->
-                        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                    </agm-map>
+                </div>
+                
+                <div class="col-md-8 container-fluid">
+                    <div class="card-body">
+                        <div class="info">
+                            <!-- If editView is not active -->
+                            <div *ngIf="!editView">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!-- Landmark Title -->
+                                        <h3>{{articleDisplay.title}}</h3>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <!-- Edit Button -->
+                                        <button 
+                                            id="edit-btn" 
+                                            *ngIf="logedIn" 
+                                            class="btn btn-primary rounded-pill"
+                                            (click)="changeEditView()"
+                                        >
+                                        Edit
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Landmark Info -->
+                                <p>{{articleDisplay.short_info}}</p>
+                                <!-- Landmark Description -->
+                                <p>{{articleDisplay.description}}</p>
+                                <!-- Original Site URL -->
+                                <a href="{{articleDisplay.url}}">{{articleDisplay.url}}</a>
+                            </div>
+
+                            <!-- If edtiView is active -->
+                            <div *ngIf="editView">
+                                <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                                    <!-- Landmark Title -->
+                                    <textarea
+                                        id="title" 
+                                        formControlName="title"    
+                                        class="form-control textarea" 
+                                        value="{{articleDisplay.title}}"
+                                    ></textarea> 
+                                    <!-- Landmark Info -->
+                                    <textarea 
+                                        id="info" 
+                                        formControlName="short_info"
+                                        class="form-control textarea"
+                                        value="{{articleDisplay.short_info}}" 
+                                    ></textarea>
+                                    <!-- Landmark Description -->
+                                    <textarea 
+                                        id="description" 
+                                        formControlName="description"
+                                        class="form-control textarea" 
+                                        value="{{articleDisplay.description}}"
+                                    ></textarea>
+                                    <!-- Save Button -->
+                                    <button 
+                                        id="submitButton" 
+                                        class="btn btn-primary rounded-pill" 
+                                        type="submit"
+                                    >Save Changes</button>
+                                    <!-- Cancel Button -->
+                                    <button 
+                                        id="cancel-btn" 
+                                        class="btn btn-primary rounded-pill"
+                                        (click)="changeEditView()"
+                                    >
+                                    Cancel
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div id="card" class="card mb-3" >            
+            <!-- Google Maps -->
+            <agm-map 
+                id="map"
+                [latitude]="latitude"
+                [longitude]="longitude"
+            >
+                <!-- Location Marker -->
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
         </div>
     </div>
   </div>

@@ -28,12 +28,9 @@
         <div class="col-md-8">
           <div class="card-body">
             <!-- Landmark Title -->
-            <div class="row g-0">
-              <div class="col-md-8">
-                <span id="title" routerLink="article" (click)="changeLandmarkId(d.objectId)">
-                  <h3 class="card-title">{{d.title}}</h3>
-                </span>
-              </div>
+            <span id="title" routerLink="article" (click)="changeLandmarkId(d.objectId)">
+              <h3 class="card-title">{{d.title}}</h3>
+            </span>
             <!-- Landmark Info -->
             <p class="card-text">{{d.short_info}}</p>
           </div>
@@ -45,10 +42,10 @@
   <!-- Image Modal -->
   <div id="imgModal" class="modal fade">
     <div class="modal-dialog modal-dialog-centered">    
-      <img 
+      <img
         id="img-modal"
         [src]="modalImg" 
-        class="img-fluid rounded"
+        class="modal-content img-fluid rounded"
       >
     </div>
   </div>

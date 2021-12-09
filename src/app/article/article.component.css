@@ -42,6 +42,11 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px lightskyblue;
 }
 
+#edit-btn:hover {
+    border-color: lightskyblue;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px lightskyblue;
+}
+
 #cancel-btn{
     margin-top: 15px;
     margin-right: 15px;
@@ -56,6 +61,11 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px red;
 }
 
+#cancel-btn:hover {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px red;
+}
+
 #submitButton {
     margin-top: 15px;
     border-color: lightskyblue;
@@ -64,6 +74,11 @@
 }
 
 #submitButton:focus {
+    border-color: lightskyblue;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px lightskyblue;
+}
+
+#submitButton:hover {
     border-color: lightskyblue;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px lightskyblue;
 }

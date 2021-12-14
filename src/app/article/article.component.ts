@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LandmarksApiservicesService } from '../service/landmarksapiservices.service';
 import { FormBuilder } from '@angular/forms';
+import { catchError, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-article',
@@ -11,7 +13,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private _services:LandmarksApiservicesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toast: ToastrService
   ) { }
 
   // display data
@@ -67,7 +70,12 @@ export class ArticleComponent implements OnInit {
   // submit changes
   onSubmit(){
     this._services.updateArticle(this.articleId, this.editForm.value, this.sessionToken)
+      .pipe(catchError(error => {
+        this.toast.error("Could not Save Article")
+        return throwError(error)
+      }))
       .subscribe(result => {
+        this.toast.success("Article Saved")
         this.getArticle()
         this.changeEditView()
       })

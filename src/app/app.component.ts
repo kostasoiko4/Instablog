@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthservicesService } from './auth/service/authservices.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent{
 
   constructor(
     private _services:AuthservicesService,
-    private _router:Router
+    private _router:Router,
+    private toast: ToastrService
   ) { }
 
   // logedIn trigger
@@ -32,5 +34,6 @@ export class AppComponent{
     this._services.logout()
     localStorage.clear()
     location.reload()
+    this.toast.info("You are now logged out")
   }
 }
